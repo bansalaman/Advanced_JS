@@ -18,5 +18,6 @@ class Order{
     }
 }
 //module.exports = Customer;
-
+//Customer is object
+//Order is class
 module.exports = {Customer:new Customer(1,"Some Name"),Order}

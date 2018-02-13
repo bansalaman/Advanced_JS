@@ -16,9 +16,6 @@ let Calculator = function(val){
             return this.total;
         }
     }
-
-
-
 let ScientificCalculator = function(val){
     Calculator.call(this,val);
     this.sin = function(newVal){

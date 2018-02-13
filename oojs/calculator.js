@@ -17,7 +17,7 @@ console.log("Please enter the values");
 console.log(add(5,10));
 console.log(subtract(10,5));
 console.log(multiply(5,10));
-//console.log(calculator(5,10));
+
 x = 5;
 y = 10;
 var n = 1;

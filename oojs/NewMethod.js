@@ -20,9 +20,8 @@ Object.defineProperty(player, 'fullName', {
     writable: true,
     enumerable: true,
     configurable: true
-  });
+});
   
-
 player.firstName="Virushka"
 // player.fullName = function(){
 //     return Nothing;

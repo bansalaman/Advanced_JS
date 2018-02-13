@@ -1,6 +1,5 @@
 module.exports = (function(){
     'use strict';
-
     let methodA = function(){
         return{
          getDay: function(){
@@ -8,7 +7,6 @@ module.exports = (function(){
             }
         }
     }
-
     let methodB = function(){
         return{
          getMonth: function(){
@@ -16,11 +14,8 @@ module.exports = (function(){
             }
         }
     }
-    
     //closures to expose private members as public interfaces
     return{
         methodA, methodB
-    }
-    
-    
+    }    
 }());
