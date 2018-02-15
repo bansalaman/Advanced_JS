@@ -13,5 +13,4 @@ import Controller from "./controller/cityStrl";
     })
     let controller = new Controller();
     view.initialize();
-
 })();

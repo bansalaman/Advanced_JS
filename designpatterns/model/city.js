@@ -16,7 +16,6 @@ import Observer from "../observer/listenernotifier";
         this.cities.splice(index,1);
         this.cityRemoved.notify(this.cities);
     }
-
 }
 
 export default new Model()

@@ -1,5 +1,5 @@
 import Model from "../model/city";
-import Controller from "../controller/cityStrl";
+import Controller from "../presentor/cityCtrl";
 
 export default class View{
     //dom elements and will represent everything - button, dopdown

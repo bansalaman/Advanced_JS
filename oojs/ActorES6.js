@@ -1,13 +1,11 @@
 
 //we are declaring actor as a class
 class Actor{
-
     constructor(age,height,name){
         this.age = age;
         this.height = height;
         this.name = name;
     }
-
     //instance methods
     dance(){
         console.log("aman");
