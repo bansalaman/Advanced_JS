@@ -44,35 +44,57 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	var _city = __webpack_require__(1);
+	var _modelAddress = __webpack_require__(1);
 
-	var _city2 = _interopRequireDefault(_city);
+	var _modelAddress2 = _interopRequireDefault(_modelAddress);
 
-	var _cityView = __webpack_require__(3);
+	var _viewAddress = __webpack_require__(2);
 
-	var _cityView2 = _interopRequireDefault(_cityView);
+	var _viewAddress2 = _interopRequireDefault(_viewAddress);
 
-	var _cityStrl = __webpack_require__(4);
+	var _controllerAddress = __webpack_require__(3);
 
-	var _cityStrl2 = _interopRequireDefault(_cityStrl);
+	var _controllerAddress2 = _interopRequireDefault(_controllerAddress);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	(function () {
-	    //let model = new Model();
-	    //key value pair
-	    var view = new _cityView2.default({ addBtn: document.querySelector('#addBtn'),
-	        removeBtn: document.querySelector('#removeBtn'),
-	        cityList: document.querySelector('#cityList')
+	    var view = new _viewAddress2.default({
+	        checkbox: document.getElementById('checkbox'),
+	        payStName: document.getElementById('payStName'),
+	        payCtName: document.getElementById('payCtName'),
+	        shipStName: document.getElementById('shipStName'),
+	        shipCtName: document.getElementById('shipCtName')
 	    });
-	    var controller = new _cityStrl2.default();
+	    var controller = new _controllerAddress2.default();
 	    view.initialize();
 	})();
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Model = function Model(stName, cityName) {
+	    _classCallCheck(this, Model);
+
+	    this.stName = stName;
+	    this.cityName = cityName;
+	};
+
+	exports.default = new Model();
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -83,81 +105,43 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _listenernotifier = __webpack_require__(2);
+	var _modelAddress = __webpack_require__(1);
 
-	var _listenernotifier2 = _interopRequireDefault(_listenernotifier);
+	var _modelAddress2 = _interopRequireDefault(_modelAddress);
+
+	var _controllerAddress = __webpack_require__(3);
+
+	var _controllerAddress2 = _interopRequireDefault(_controllerAddress);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var Model = function () {
-	    function Model() {
-	        _classCallCheck(this, Model);
+	var View = function () {
+	    function View(elements) {
+	        _classCallCheck(this, View);
 
-	        this.cities = [];
-	        this.cityAdded = new _listenernotifier2.default();
-	        this.cityRemoved = new _listenernotifier2.default();
+	        this.elements = elements;
+	        this.model = _modelAddress2.default;
+	        this.controller = new _controllerAddress2.default();
 	    }
 
-	    _createClass(Model, [{
-	        key: "add",
-	        value: function add(name) {
-	            this.cities.push(name);
-	            this.cityAdded.notify(this.cities);
-	        }
-	    }, {
-	        key: "remove",
-	        value: function remove(index) {
-	            this.cities.splice(index, 1);
-	            this.cityRemoved.notify(this.cities);
-	        }
-	    }]);
+	    _createClass(View, [{
+	        key: "initialize",
+	        value: function initialize() {
+	            var _this = this;
 
-	    return Model;
-	}();
-
-	exports.default = new Model();
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Observer = function () {
-	    function Observer(observers) {
-	        _classCallCheck(this, Observer);
-
-	        this.observers = [];
-	    }
-
-	    _createClass(Observer, [{
-	        key: "attach",
-	        value: function attach(cb) {
-	            this.observers.push(cb);
-	        }
-	    }, {
-	        key: "notify",
-	        value: function notify(newCity) {
-	            this.observers.forEach(function (cb) {
-	                cb(newCity);
+	            this.elements.checkbox.addEventListener('change', function () {
+	                _this.elements.shipStName.value = _this.elements.payStName.value;
+	                _this.elements.shipCtName.value = _this.elements.payCtName.value;
 	            });
 	        }
 	    }]);
 
-	    return Observer;
+	    return View;
 	}();
 
-	exports.default = Observer;
+	exports.default = View;
 
 /***/ }),
 /* 3 */
@@ -169,138 +153,19 @@
 	    value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _modelAddress = __webpack_require__(1);
 
-	var _city = __webpack_require__(1);
-
-	var _city2 = _interopRequireDefault(_city);
-
-	var _cityStrl = __webpack_require__(4);
-
-	var _cityStrl2 = _interopRequireDefault(_cityStrl);
+	var _modelAddress2 = _interopRequireDefault(_modelAddress);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var View = function () {
-	    //dom elements and will represent everything - button, dopdown
-	    function View(elements) {
-	        _classCallCheck(this, View);
+	var Controller = function Controller() {
+	    _classCallCheck(this, Controller);
 
-	        this.elements = elements;
-	        this.model = _city2.default;
-	        this.controller = new _cityStrl2.default();
-	    }
-
-	    _createClass(View, [{
-	        key: "initialize",
-	        value: function initialize() {
-	            var _this = this;
-
-	            this.model.cityAdded.attach(function (cityList) {
-	                //rerendering the dom by refreshing\
-	                //render is a local function
-	                _this.render(cityList);
-	            });
-
-	            this.model.cityRemoved.attach(function (cityList) {
-	                _this.render(cityList);
-	            });
-
-	            this.elements.addBtn.addEventListener('click', function () {
-	                var newCity = prompt('Enter a New City');
-	                if (newCity) {
-	                    _this.controller.add(newCity);
-	                }
-	            });
-
-	            this.elements.removeBtn.addEventListener('click', function () {
-	                var index = _this.elements.cityList.options.selectedIndex;
-	                if (index != -1) {
-	                    _this.controller.remove(index);
-	                }
-	            });
-	        }
-	    }, {
-	        key: "render",
-	        value: function render(newCityList) {
-	            this.elements.cityList.innerHTML = '';
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = newCityList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var city = _step.value;
-
-	                    this.elements.cityList.appendChild
-	                    //name,value
-	                    (new Option(city, city));
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-	        }
-	    }]);
-
-	    return View;
-	}();
-
-	exports.default = View;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _city = __webpack_require__(1);
-
-	var _city2 = _interopRequireDefault(_city);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var Controller = function () {
-	    function Controller(model) {
-	        _classCallCheck(this, Controller);
-
-	        this.model = _city2.default;
-	    }
-
-	    _createClass(Controller, [{
-	        key: "add",
-	        value: function add(name) {
-	            this.model.add(name);
-	        }
-	    }, {
-	        key: "remove",
-	        value: function remove(index) {
-	            this.model.remove(index);
-	        }
-	    }]);
-
-	    return Controller;
-	}();
+	    this.model = _modelAddress2.default;
+	};
 
 	exports.default = Controller;
 
