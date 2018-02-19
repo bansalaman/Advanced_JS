@@ -82,14 +82,28 @@
 	    value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var Model = function Model(stName, cityName) {
-	    _classCallCheck(this, Model);
+	var Model = function () {
+	    function Model() {
+	        _classCallCheck(this, Model);
 
-	    this.stName = stName;
-	    this.cityName = cityName;
-	};
+	        this.stName;
+	        this.cityName;
+	    }
+
+	    _createClass(Model, [{
+	        key: "add",
+	        value: function add(stName, cityName) {
+	            this.stName = stName;
+	            this.cityName = cityName;
+	        }
+	    }]);
+
+	    return Model;
+	}();
 
 	exports.default = new Model();
 
@@ -134,6 +148,7 @@
 	            this.elements.checkbox.addEventListener('change', function () {
 	                _this.elements.shipStName.value = _this.elements.payStName.value;
 	                _this.elements.shipCtName.value = _this.elements.payCtName.value;
+	                _this.controller.add(_this.elements.shipStName.value, _this.elements.shipCtName.value);
 	            });
 	        }
 	    }]);
@@ -153,6 +168,8 @@
 	    value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _modelAddress = __webpack_require__(1);
 
 	var _modelAddress2 = _interopRequireDefault(_modelAddress);
@@ -161,11 +178,22 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	var Controller = function Controller() {
-	    _classCallCheck(this, Controller);
+	var Controller = function () {
+	    function Controller() {
+	        _classCallCheck(this, Controller);
 
-	    this.model = _modelAddress2.default;
-	};
+	        this.model = _modelAddress2.default;
+	    }
+
+	    _createClass(Controller, [{
+	        key: "add",
+	        value: function add(stName, cityName) {
+	            this.model.add(stName, cityName);
+	        }
+	    }]);
+
+	    return Controller;
+	}();
 
 	exports.default = Controller;
 
