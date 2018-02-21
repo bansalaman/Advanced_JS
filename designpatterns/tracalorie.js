@@ -9,10 +9,10 @@ import Controller from './controller/controllerTracalorie'
         addMeal : document.querySelector('#add-meal'),
         mealInput : document.getElementById('meal-input'),
         calorieInput: document.getElementById('calorie-input'),
-        showElements: document.getElementById('show-elements'),
-        totalCalories1: document.getElementById('total-calories'),
-        editButton : document.getElementById('edit'),
-        tableData1 :document.getElementById('addTable')
+        tableData: document.getElementById('addTable'),
+        totalCalories: document.getElementById('total-calories'),
+        updateMeal: document.getElementById('update-meal'),
+        deleteMeal: document.getElementById('delete-meal')
     })
     let controller = new Controller();
     view.initialize();

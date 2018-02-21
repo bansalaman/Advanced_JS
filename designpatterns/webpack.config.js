@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './mvcAddress1.js',
+    entry: './tracalorie.js',
    output: {
       publicPath: '/',
       filename: 'main.js'

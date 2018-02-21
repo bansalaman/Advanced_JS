@@ -9,9 +9,9 @@
         .heading{
             border : 2px black;
             background-color: red;
-            height: 10%;
+            height:8%;
             text-align: center;
-            padding-top: 20px;
+            padding-top: 5px;
         }
         .inputType{
             border-top: none;
@@ -36,22 +36,29 @@
             border:none;
             font: 20px bold;
         }
-        .updateDelete{
-            display:none;            
+        .button1{
+            height: 40px;
+            width: 100px;
+            background-color: red;
         }
-
         input[type=number]::-webkit-outer-spin-button,
         input[type=number]::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
+        }
+        .displayNone{
+            display: none;
+        }
+        .displayInline{
+            display: inline;
         }
    </style>
 </head>
 
 <body>
     <div class="heading">
-        <h1>True Calorie</h1>
-        <button id='clear-all' style="float:right; background-color: green">CLEAR ALL</button>
+        <h1><span><button id='clear-all' class="button1" style="float:right; background-color:yellow; margin-right:20px">CLEAR ALL</button></span>Track Calorie</h1>
+        
     </div>
 
     <div>
@@ -63,12 +70,10 @@
         <input type="number" placeholder="calorie" name="calorie" id="calorie-input" class="inputType"><br/><br/>
 
         <hr/><br/>
-        <button id='add-meal' style="background-color: blue">+ADD MEAL</button><br/><br/>
-
-        <button id='update-meal' class="updateDelete">UPDATE MEAL</button>
-        <button id='delete-meal' class="updateDelete">DELETE MEAL</button>
+        <button id='add-meal' class="button1">+ADD MEAL</button>
+        <button id='update-meal' class="displayNone button1">UPDATE</button>
+        <button id='delete-meal' class="displayNone button1">DELETE</button>
         <hr/><br/>
-
 
         <div class="caloriesTotal">
             <label for="total-calories" class="cal" >Calories:</label>
@@ -77,11 +82,7 @@
         <hr/>
 
         <table id="addTable">
-            <!-- <tr>
-                <td>Meal</td>
-                <td>Calories</td>
-                <td><button id = "editButton">Edit</button></td>
-            </tr> -->
+    
         </table>
     </div>
 

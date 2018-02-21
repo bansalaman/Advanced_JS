@@ -1,12 +1,21 @@
 import Model from '../model/modelTracalorie'
 export default class Controller{
     constructor(){
+        
         this.model = Model;
+
     }
-    add(mealName,NoOfCalories,totalCalor){
-        this.model.add(mealName,NoOfCalories,totalCalor)
+    add(mealName,NoOfCalories){
+        this.model.add(mealName,NoOfCalories)
+        
     }
-    remove(mealName,NoOfCalories,totalCalor){
-        this.model.remove(mealName,NoOfCalories,totalCalor)
+    delete(mealName,NoOfCalories){
+        this.model.delete(mealName,NoOfCalories)
+    }
+    clear(mealName,NoOfCalories){
+        this.model.clear(mealName,NoOfCalories)
+    }
+    update(mealName,NoOfCalories){
+        this.model.update(mealName,NoOfCalories);
     }
 }
