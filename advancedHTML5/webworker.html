@@ -35,13 +35,19 @@ value="pause"/>
             worker = new Worker('webworker.js')
             // worker thread send the messgae then only onmessage is called
             worker.onmessage=(e)=>{
+                //back to main thread
                 let parseData = JSON.parse(e.data);
                 result.innerHTML = parseData.Root
             }
-            worker.onerror = (e) =>{
+            worker.onerror=(e)=>{
+                //if there is any error
                 alert(e.message);
             }
             worker.postMessage('start')
+        })
+        document.querySelector('#pause')
+        .addEventListener('click',(event)=>{
+            worker.postMessage('pause')
         })
     })()
 </script>

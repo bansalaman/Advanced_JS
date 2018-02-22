@@ -22,5 +22,6 @@ let taskHandler = function(e){
 }
 addEventListener("message",taskHandler,false);
 //event bubbling and event capturing
+
 //main thread and worker thread
 //func is execcuted in worker thread when messsage is passed
