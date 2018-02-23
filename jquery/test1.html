@@ -1,0 +1,111 @@
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bootstrap Menu</title>
+    </head>
+
+    <body>
+
+        <!-- <p>Aman</p>
+        <p>Bansal</p>
+
+        <a href = "www.google.com">Google</a>
+        <a href = "www.google.com">Google</a>
+
+        <span>Aman1</span>
+        <span>Bansal1</span>
+        <table>
+            <tr>
+                <th>Cid</th>
+                <th>Cname</th>
+                <th>COrder</th>
+            </tr>
+
+            <tr>
+                    <td>a</td>
+                    <td>Caa</td>
+                    <td>1</td>
+                </tr>
+
+                <tr>
+                        <td>b</td>
+                        <td>Cbb</td>
+                        <td>2</td>
+                    </tr>    
+
+                    
+                <tr>
+                        <td>c</td>
+                        <td>Ccc</td>
+                        <td>3</td>
+                    </tr>    
+        </table>
+
+        <form>
+            <label for = "checkradio">check Radio</label>
+            <input type= "radio" name="checkradio" id="checkradio">
+
+            <label for = "text">check Text</label>
+            <input type= "text" name="text" id="text">
+
+            <textarea>Message</textarea>
+            <button>Submit</button>
+
+        </form>
+
+        <div>
+            <span>First child,first group</span>
+            <span>second child,first group</span>
+        </div>
+        <div>
+                <span>First child,second group</span>
+                <span>second child,second group</span>
+            </div> -->
+
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script>
+    // $(document).ready(function(){
+    //     console.log('document content loaded')
+    // })
+    // jQuery(document).ready(function(){
+    //     console.log('document content loaded')
+    // })
+    // $(function(){
+    //     console.log('document content loaded')
+    // })
+    //console.log($('p,a,span'))
+    //console.log($('table tr'))
+    //console.log($('input')); //will select only for input type
+    //console.log($(':input')) //will select for all button, textarea
+    //console.log($(':input[type="radio]'));
+    // $(function(){
+    //     console.log($('tr:odd'))
+    // })
+    //console.log($('tr:odd'))
+    //console.log($('tr'))
+    //console.log($('span:first-child'))
+    $('div').each(function(i){
+        this.title = "My Index="+i;
+        console.log(this.title)
+    });
+    var val = $('div').attr('title')
+    //console.log(val)
+    var val1 = $('div').attr('title','button')
+    //console.log(val1);
+
+    $('div').attr({
+     
+        style: 'border:2px solid black'
+    })
+    </script>
+    </body>
+    </html>
