@@ -270,6 +270,7 @@
 	            this.elements.totalCalories.placeholder = totalCalorie;
 	            edit.innerHTML = "Edit";
 	            edit.id = 'edit1';
+	            //edit.setAttribute('id',item.id);
 	            tdata1.innerHTML = meals + ":";
 	            tdata1.setAttribute("style", "float:left");
 	            tdata2.innerHTML = calories;

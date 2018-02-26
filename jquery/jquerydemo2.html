@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Bootstrap Menu</title>
+    </head>
+    <body>
+        <div id="div1">DIV1</div>
+        <div id="div2">DIV2</div>
+        <div id="div3">DIV3</div>
+        <div id="div4">DIV4</div>
+        <div id="div5">DIV5</div>
+        <div id="div6">DIV6</div>
+        <button id="btn1">Click</button>
+        <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script>
+            $(function(){
+                //makig my own custom function
+                $.fn.customFunction =function(){
+                    let arr = [];
+                    $.each(this,(index,item)=>{
+                        if(index%3 == 0){
+                            arr.push(item)
+                        }
+                    })
+                    // returns a new array and this means the object
+                    //"" means attribute since there is no attribute so it is empty
+                    //keeps track of previous jquery collection to enable function chaining
+                    return this.pushStack(arr,'customFunction',"")
+                }
+                $('#btn1').on('click',()=>{    
+                $('div').customFunction()
+                    //.css('color','red').end().css('font-weight','bold')  
+                    .css({'color':'red','font-weight':'bold'}) 
+                })    
+                    let array1 = [3,2,3,1,4,5,4];
+                    let array2 = [6,7,8];
+                    //utility methods
+                    console.log($.unique(array1));
+                    console.log($.merge(array1,array2))
+
+                    // let greepedArray = $.grep(array1,(item)=>{
+                    //     return item%2 == 0;
+                    // })
+                    // console.log(greepedArray)
+
+                    let mapedArray = $.map(array1,(item,idx)=>{
+                        return item%2 == 0;
+                    })
+                    console.log(mapedArray)
+
+                    //returns an array of div
+                    console.log($.makeArray($('div')))
+
+                    //returns a jquery object consisting div elements
+                    console.log($('div'))
+
+                    let employee = {
+                        id:1,
+                        name:"Emp1",
+                        submitTimesheet(){
+                            console.log('Aman');
+                            return 'Employee should submit the time sheet'
+                        }
+                    }
+
+                    let manager = {                        
+                        verifyTimesheet(){
+                            console.log('Bansal')
+                            return 'Employee should verify the time sheet'
+                        }
+                    }
+                    let vp = {                        
+                        timesheet(){
+                            console.log('Bansal')
+                            return 'VP should verify the time sheet'
+                        }
+                    }
+                    $.extend(true,manager,employee,vp)
+                    //$.extend(true,employee,vp)
+                   console.log(manager.submitTimesheet());
+                   console.log(manager.timesheet());
+                   console.log(vp.timesheet());
+            })
+        </script>
+    </body>
+    </html>
