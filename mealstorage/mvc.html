@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>City List</title>
+    <style>
+        .container{
+            width: 100%;
+        }
+        .header{
+            width: 100%;
+            background-color: red;
+            color: aliceblue;
+            text-align: center;
+            height:80px;
+
+        }
+        .bottomContainer{
+            width:80%;
+            margin:auto;
+        }
+        .addButton{
+            width: 90px;
+            height: 40px;
+            background-color: blue;
+            color: aliceblue;
+            margin-left:10px;
+        }
+        .updateButton{
+            width: 140px;
+            height: 40px;
+            background-color: red;
+            color: aliceblue;
+            margin-left:10px;
+            display: none;
+        }
+        .deleteButton{
+            width: 140px;
+            height: 40px;
+            background-color: red;
+            color: aliceblue;
+            margin-left:10px;
+            display: none;
+        }
+        .clearButton{
+            width: 140px;
+            height: 40px;
+            background-color: rgba(15, 245, 253, 0.555);
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="margin:auto">Tracalorie</h1>
+            <span style="float:right"><button id="clearButton">Clear All</button></span>
+        </div>
+        <div class="bottomContainer">
+            <form>
+                <h1>Add Meals/Food Items</h1>
+                <span style="width:50%; margin-right:130px">
+                    <label for="meal">Meal</label>
+                    <input style="width:40%; border:none;border-bottom:1px solid blue;" type="text" id="meal">
+                </span>
+                <span style="width:50%">
+                    <label for="amount">Amount</label>
+                    <input style="width:40%; border:none;border-bottom:1px solid blue;" type="number" id="amount">
+                </span>
+                <br>
+                <br>
+                <div>
+                    <button type="button" id="addMeal" class="addButton">+ Add Meal</button>
+                    <button type="button" id="updateMeal" class="updateButton">Update Meal</button>
+                    <button type="button" id="deleteMeal" class="deleteButton">Delete Meal</button>
+                </div>
+                <br>
+                <hr>
+                <br>
+            </form>
+            <div style="text-align:center"><h1>Total Calories : </h1><h1 id="totalCalories"></h1></div>
+            <div>
+                <table id="table" style="width:100%">
+                    <tbody id="mainTable">
+                        <!-- <tr>
+                            <td>PIZZA</td>
+                            <td>100 Calories</td>
+                            <td><button style="float:right">Edit</button></td>
+                        </tr> -->
+                    </tbody>
+                </table>
+            </div>     
+        </div>
+    </div>
+<script src="main.js"></script>
+</body>
+</html>

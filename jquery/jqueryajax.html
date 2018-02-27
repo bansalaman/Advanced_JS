@@ -7,8 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-
-
         <form class="form-horizontal">
                 <div class="form-group">
                   <label for="userId" 
@@ -33,8 +31,6 @@
                       </div>
        </form>
 
-
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     $(function(){
@@ -42,15 +38,15 @@
            //let deferred = $.Deferred;
             let ajaxCall1 = 
             //$.getJSON("https://jsonplaceholder.typicode.com/posts/3"+$(e.currentTarget).val()).done((data)=>{
-            $.ajax("https://jsonplaceholder.typicode.com/posts/3"+$(e.currentTarget).val()).done((data)=>{
-            //$.ajax("https://jsonplaceholder.typicode.com/posts/3"+$(e.currentTarget).val(),method:'GET'}).done((data)=>{
+            //$.ajax("https://jsonplaceholder.typicode.com/posts/3"+$(e.currentTarget).val()).done((data)=>{
+            $.ajax({url:"https://jsonplaceholder.typicode.com/posts/"+$(e.currentTarget).val(),method:'GET'}).done((data)=>{
                 $('#title').val(data.title)
                 $('#body').val(data.body)
             }).fail((xhr)=>{
                 alert(xhr.error)
             })
         })
-    })
+    })    
 </script>    
 </body>
 </html>
