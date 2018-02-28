@@ -1,8 +1,6 @@
 
 const { Transform } = require('stream');
 
-
-
 const inoutStream = new Transform({
     transform(chunk,encoding,cb){
         this.push(chunk.toString().toUpperCase());

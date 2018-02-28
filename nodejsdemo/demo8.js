@@ -1,7 +1,5 @@
 const { Readable } = require('stream');
 
-
-
 const inoutStream = new Readable({
     write(chunk,encoding,cb){
         console.log(chunk.toString());
