@@ -28,8 +28,7 @@ readData(c){
             this.emit('done',count);
             clearInterval(t);
         }
-    },10) 
-            
+    },10)             
  }
 }
  
