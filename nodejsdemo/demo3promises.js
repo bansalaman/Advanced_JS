@@ -11,7 +11,6 @@ const readData = (file)=>{
     })
 }
 readData('./file1').then((data)=>{
-    
     const numbers = data.map(Number);
     const oddNumbers = numbers.filter(number=>number%2 ===1)
     console.log(oddNumbers)

@@ -1,7 +1,5 @@
 const { Readable } = require('stream');
 
-
-
 const inStream = new Readable({
   read(size) {
     setTimeout(() => {

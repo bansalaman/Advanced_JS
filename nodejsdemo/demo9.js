@@ -8,5 +8,4 @@ const inoutStream = new Transform({
     },
  });
 
-
 process.stdin.pipe(inoutStream).pipe(process.stdout);
